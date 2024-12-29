@@ -1,0 +1,111 @@
+/* Gaya dasar */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1e293b; /* Dark theme background */
+    color: #e2e8f0; /* Text color */
+}
+
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    background: #334155; /* Dark card background */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    color: #e2e8f0;
+}
+
+h1 {
+    text-align: center;
+    color: #38bdf8; /* Aqua accent */
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #94a3b8;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    background: #475569; /* Input background */
+    color: #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #38bdf8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #0284c7;
+}
+
+/* Result styling */
+#result {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.movie {
+    background: #475569;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.movie img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.details {
+    padding: 15px;
+}
+
+.details h2 {
+    margin: 0 0 10px;
+    font-size: 1.25rem;
+    color: #e2e8f0;
+}
+
+.details p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}

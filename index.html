@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Rekomendasi Film</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sistem Rekomendasi Film</h1>
+
+        <!-- Form pencarian film -->
+        <form id="searchForm">
+            <label for="search">Cari Judul Film:</label>
+            <input type="text" id="search" placeholder="Masukkan judul film..." />
+            <button type="submit">Cari</button>
+        </form>
+
+        <!-- Form pengurutan film -->
+        <form id="sortForm">
+            <label for="sort">Urutkan Berdasarkan:</label>
+            <select id="sort">
+                <option value="rating">Rating</option>
+                <option value="genre">Genre</option>
+                <option value="year">Tahun</option>
+            </select>
+            <button type="submit">Urutkan</button>
+        </form>
+
+        <!-- Tempat menampilkan hasil -->
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
