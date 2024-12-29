@@ -1,37 +1,54 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Rekomendasi Film</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Sistem Rekomendasi Film</h1>
+import tkinter as tk
+from tkinter import ttk, messagebox
 
-        <!-- Form pencarian film -->
-        <form id="searchForm">
-            <label for="search">Cari Judul Film:</label>
-            <input type="text" id="search" placeholder="Masukkan judul film..." />
-            <button type="submit">Cari</button>
-        </form>
+def search_movie():
+    query = search_var.get().strip()
+    if query:
+        result_label.config(text=f"Hasil pencarian untuk: '{query}'")
+    else:
+        messagebox.showwarning("Peringatan", "Masukkan judul film untuk mencari!")
 
-        <!-- Form pengurutan film -->
-        <form id="sortForm">
-            <label for="sort">Urutkan Berdasarkan:</label>
-            <select id="sort">
-                <option value="rating">Rating</option>
-                <option value="genre">Genre</option>
-                <option value="year">Tahun</option>
-            </select>
-            <button type="submit">Urutkan</button>
-        </form>
+def sort_movies():
+    sort_by = sort_var.get()
+    result_label.config(text=f"Film diurutkan berdasarkan: {sort_by.capitalize()}")
 
-        <!-- Tempat menampilkan hasil -->
-        <div id="result"></div>
-    </div>
+# Membuat jendela utama
+root = tk.Tk()
+root.title("Sistem Rekomendasi Film")
 
-    <script src="script.js"></script>
-</body>
-</html>
+# Container utama
+container = ttk.Frame(root, padding=10)
+container.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+
+# Judul aplikasi
+title_label = ttk.Label(container, text="Sistem Rekomendasi Film", font=("Arial", 16))
+title_label.grid(row=0, column=0, columnspan=2, pady=10)
+
+# Form pencarian film
+search_label = ttk.Label(container, text="Cari Judul Film:")
+search_label.grid(row=1, column=0, sticky=tk.W, pady=5)
+
+search_var = tk.StringVar()
+search_entry = ttk.Entry(container, textvariable=search_var, width=30)
+search_entry.grid(row=1, column=1, sticky=tk.W)
+
+search_button = ttk.Button(container, text="Cari", command=search_movie)
+search_button.grid(row=1, column=2, padx=5)
+
+# Form pengurutan film
+sort_label = ttk.Label(container, text="Urutkan Berdasarkan:")
+sort_label.grid(row=2, column=0, sticky=tk.W, pady=5)
+
+sort_var = tk.StringVar(value="rating")
+sort_combobox = ttk.Combobox(container, textvariable=sort_var, values=["rating", "genre", "year"], state="readonly")
+sort_combobox.grid(row=2, column=1, sticky=tk.W)
+
+sort_button = ttk.Button(container, text="Urutkan", command=sort_movies)
+sort_button.grid(row=2, column=2, padx=5)
+
+# Tempat menampilkan hasil
+result_label = ttk.Label(container, text="", font=("Arial", 12))
+result_label.grid(row=3, column=0, columnspan=3, pady=10)
+
+# Menjalankan aplikasi
+root.mainloop()
