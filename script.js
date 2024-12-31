@@ -1,7 +1,6 @@
 // Data film (contoh)
-const movies = [
+const movies = [ // Array berisi daftar objek film dengan atribut seperti judul, genre, tahun, rating, dan URL gambar
     { "title": "The Shawshank Redemption", "genre": "Drama", "year": 1994, "rating": 9.3, "image": "https://upload.wikimedia.org/wikipedia/en/8/81/ShawshankRedemptionMoviePoster.jpg" },
-    { "title": "The Godfather", "genre": "Crime", "year": 1972, "rating": 9.2, "image": "https://via.placeholder.com/100x150?text=The+Godfather" },
     { "title": "The Dark Knight", "genre": "Action", "year": 2008, "rating": 9.0, "image": "https://via.placeholder.com/100x150?text=The+Dark+Knight" },
     { "title": "The Godfather Part II", "genre": "Crime", "year": 1974, "rating": 9.0, "image": "https://via.placeholder.com/100x150?text=The+Godfather+Part+II" },
     { "title": "12 Angry Men", "genre": "Drama", "year": 1957, "rating": 9.0, "image": "https://via.placeholder.com/100x150?text=12+Angry+Men" },
@@ -44,54 +43,54 @@ const movies = [
     { "title": "Amadeus", "genre": "Biography", "year": 1984, "rating": 8.4, "image": "https://via.placeholder.com/100x150?text=Amadeus" }
 ];
 
-
 // Fungsi untuk menampilkan hasil
-function displayMovies(movieList) {
-    const resultDiv = document.getElementById("result");
-    resultDiv.innerHTML = ""; // Hapus konten sebelumnya
+function displayMovies(movieList) { // Fungsi untuk menampilkan daftar film yang diterima sebagai parameter
+    const resultDiv = document.getElementById("result"); // Ambil elemen div dengan ID 'result'
+    resultDiv.innerHTML = ""; // Bersihkan konten sebelumnya di dalam div 'result'
 
-    movieList.forEach(movie => {
-        const movieDiv = document.createElement("div");
-        movieDiv.classList.add("movie");
+    movieList.forEach(movie => { // Iterasi setiap objek film di dalam daftar
+        const movieDiv = document.createElement("div"); // Buat elemen div baru untuk setiap film
+        movieDiv.classList.add("movie"); // Tambahkan kelas CSS 'movie' ke div
 
-        movieDiv.innerHTML = `
-            <img src="${movie.image}" alt="${movie.title}" />
-            <div class="details">
-                <h2>${movie.title}</h2>
-                <p>Genre: ${movie.genre}</p>
-                <p>Tahun: ${movie.year}</p>
-                <p>Rating: ${movie.rating}</p>
+        movieDiv.innerHTML = ` 
+            <img src="${movie.image}" alt="${movie.title}" /> <!-- Tambahkan gambar film -->
+            <div class="details"> <!-- Div untuk detail film -->
+                <h2>${movie.title}</h2> <!-- Judul film -->
+                <p>Genre: ${movie.genre}</p> <!-- Genre film -->
+                <p>Tahun: ${movie.year}</p> <!-- Tahun rilis film -->
+                <p>Rating: ${movie.rating}</p> <!-- Rating film -->
             </div>
         `;
 
-        resultDiv.appendChild(movieDiv);
+        resultDiv.appendChild(movieDiv); // Tambahkan elemen div film ke dalam div 'result'
     });
 }
 
 // Inisialisasi tampilan awal
-displayMovies(movies);
+displayMovies(movies); // Panggil fungsi untuk menampilkan semua film saat halaman dimuat
 
 // Fungsi pencarian (algoritma searching)
-document.getElementById("searchForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const query = document.getElementById("search").value.toLowerCase();
-    const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(query));
-    displayMovies(filteredMovies);
+document.getElementById("searchForm").addEventListener("submit", function (e) { // Tambahkan event listener untuk form pencarian
+    e.preventDefault(); // Cegah form mengirimkan data dan me-refresh halaman
+    const query = document.getElementById("search").value.toLowerCase(); // Ambil nilai input pencarian dan ubah ke huruf kecil
+    const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(query)); // Filter film berdasarkan kecocokan dengan input pencarian
+    displayMovies(filteredMovies); // Tampilkan film yang cocok dengan pencarian
 });
 
 // Fungsi pengurutan (algoritma sorting)
-document.getElementById("sortForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const sortBy = document.getElementById("sort").value;
+document.getElementById("sortForm").addEventListener("submit", function (e) { // Tambahkan event listener untuk form pengurutan
+    e.preventDefault(); // Cegah form mengirimkan data dan me-refresh halaman
+    const sortBy = document.getElementById("sort").value; // Ambil nilai dropdown untuk kriteria pengurutan
 
-    let sortedMovies;
-    if (sortBy === "rating") {
-        sortedMovies = [...movies].sort((a, b) => b.rating - a.rating);
-    } else if (sortBy === "genre") {
-        sortedMovies = [...movies].sort((a, b) => a.genre.localeCompare(b.genre));
-    } else if (sortBy === "year") {
-        sortedMovies = [...movies].sort((a, b) => b.year - a.year);
+    let sortedMovies; // Variabel untuk menyimpan hasil pengurutan
+    if (sortBy === "rating") { // Jika kriteria adalah rating
+        sortedMovies = [...movies].sort((a, b) => b.rating - a.rating); // Urutkan film berdasarkan rating secara menurun
+    } else if (sortBy === "genre") { // Jika kriteria adalah genre
+        sortedMovies = [...movies].sort((a, b) => a.genre.localeCompare(b.genre)); // Urutkan film berdasarkan genre secara alfabetis
+    } else if (sortBy === "year") { // Jika kriteria adalah tahun
+        sortedMovies = [...movies].sort((a, b) => b.year - a.year); // Urutkan film berdasarkan tahun secara menurun
     }
 
-    displayMovies(sortedMovies);
+    displayMovies(sortedMovies); // Tampilkan hasil pengurutan
 });
+
