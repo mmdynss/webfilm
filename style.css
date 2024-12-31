@@ -1,111 +1,58 @@
 /* Gaya dasar */
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #1e293b; /* Dark theme background */
-    color: #e2e8f0; /* Text color */
+body { 
+    font-family: 'Roboto', sans-serif; /* Mengatur font utama untuk seluruh halaman */
+    margin: 0; /* Menghilangkan margin default pada body */
+    padding: 0; /* Menghilangkan padding default pada body */
+    background-color: #1e293b; /* Memberikan warna latar belakang gelap */
+    color: #e2e8f0; /* Mengatur warna teks menjadi cerah */
 }
 
-.container {
-    max-width: 900px;
-    margin: 50px auto;
-    background: #334155; /* Dark card background */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    color: #e2e8f0;
+.container { 
+    max-width: 900px; /* Membatasi lebar maksimal kontainer */
+    margin: 50px auto; /* Memberikan margin atas dan bawah, serta membuatnya center secara horizontal */
+    background: #334155; /* Warna latar belakang kartu dengan tema gelap */
+    padding: 30px; /* Memberikan ruang di dalam kontainer */
+    border-radius: 10px; /* Membuat sudut kontainer membulat */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Memberikan efek bayangan */
+    color: #e2e8f0; /* Warna teks dalam kontainer */
 }
 
-h1 {
-    text-align: center;
-    color: #38bdf8; /* Aqua accent */
-    margin-bottom: 30px;
-    font-size: 2.5rem;
+h1 { 
+    text-align: center; /* Mengatur teks judul agar rata tengah */
+    color: #38bdf8; /* Memberikan warna aksen biru aqua pada judul */
+    margin-bottom: 30px; /* Memberikan ruang bawah pada judul */
+    font-size: 2.5rem; /* Ukuran font besar untuk judul */
 }
 
 /* Form styling */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-bottom: 20px;
+form { 
+    display: flex; /* Mengatur elemen form menjadi flexbox */
+    flex-direction: column; /* Menyusun elemen secara vertikal */
+    gap: 15px; /* Memberikan jarak antar elemen form */
+    margin-bottom: 20px; /* Ruang bawah untuk form */
 }
 
-label {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #94a3b8;
+label { 
+    font-size: 1rem; /* Ukuran font standar untuk label */
+    font-weight: bold; /* Memberikan penebalan teks pada label */
+    margin-bottom: 5px; /* Memberikan jarak bawah label */
+    color: #94a3b8; /* Warna label dengan kontras rendah */
 }
 
-input, select {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 6px;
-    background: #475569; /* Input background */
-    color: #e2e8f0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+input, select { 
+    width: 100%; /* Input dan dropdown seleksi mengambil lebar penuh kontainer */
+    padding: 10px; /* Memberikan ruang di dalam elemen */
+    font-size: 1rem; /* Ukuran font untuk input */
+    border: none; /* Menghilangkan border default */
+    border-radius: 6px; /* Membuat sudut input membulat */
+    background: #475569; /* Warna latar belakang elemen input */
+    color: #e2e8f0; /* Warna teks input */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Memberikan efek bayangan */
 }
 
-button {
-    padding: 12px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: #38bdf8;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
+button { 
+    padding: 12px 20px; /* Memberikan ruang di dalam tombol */
+    font-size: 1rem; /* Ukuran font tombol */
+    font-weight: bold; /* Penebalan teks tombol */
+    background-color: #38bdf8; /*
 
-button:hover {
-    background-color: #0284c7;
-}
-
-/* Result styling */
-#result {
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.movie {
-    background: #475569;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.movie:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-}
-
-.movie img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-}
-
-.details {
-    padding: 15px;
-}
-
-.details h2 {
-    margin: 0 0 10px;
-    font-size: 1.25rem;
-    color: #e2e8f0;
-}
-
-.details p {
-    margin: 5px 0;
-    font-size: 0.9rem;
-    color: #cbd5e1;
-}
